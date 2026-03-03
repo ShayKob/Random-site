@@ -2,8 +2,15 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>הפתעה בשבילך</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="הפתעה">
+    
+    <link rel="apple-touch-icon" href="images/app-icon.png">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +22,7 @@
             <input type="text" id="nameInput" placeholder="הקלידי כאן...">
             <br>
             <button class="btn-yes" onclick="checkName()">כניסה</button>
-            <p id="loginError" class="error-msg">נסה שנית!</p>
+            <p id="loginError" class="error-msg">נסי שנית!</p>
         </div>
 
         <div id="screen-hozech" class="screen">
@@ -82,9 +89,10 @@
     <div id="virus-alert" class="virus-screen">
         <h1>סכנה!!!</h1>
         <p>הטלפון שלך נתקף ב-1212 וירוסים!</p>
-        <button class="btn-yes" style="background: red;" onclick="closeVirus()">לביטולם לחצי פה ונסה שנית</button>
+        <button class="btn-yes" style="background: red;" onclick="closeVirus()">לביטולם לחצי פה ונסי שנית</button>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
