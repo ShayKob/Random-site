@@ -42,6 +42,14 @@ function setupWord() {
     currentWord = remainingWords[randomIndex];
     remainingWords.splice(randomIndex, 1);
     
+    resetGameStats();
+}
+
+function retrySameWord() {
+    resetGameStats();
+}
+
+function resetGameStats() {
     lives = 5;
     guessedLetters = [];
     document.getElementById('gameControls').style.display = 'none';
