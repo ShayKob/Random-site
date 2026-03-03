@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הפתעה בשבילך</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="screen-login" class="screen active">
+            <h2>ברוכה הבאה</h2>
+            <p>הכניסי את שמך:</p>
+            <input type="text" id="nameInput" placeholder="הקלידי כאן...">
+            <br>
+            <button class="btn-yes" onclick="checkName()">כניסה</button>
+            <p id="loginError" class="error-msg">נסה שנית!</p>
+        </div>
+
+        <div id="screen-hozech" class="screen">
+            <h2>האם השם שלי הוא שי?</h2>
+            <button class="btn-yes" onclick="nextScreen('screen-choice')">כן</button>
+            <button id="runawayBtn" class="btn-no" onmouseover="moveButton()" onclick="moveButton()">לא</button>
+        </div>
+
+        <div id="screen-choice" class="screen">
+            <h2>מה תרצי לעשות עכשיו?</h2>
+            <button class="btn-yes" onclick="nextScreen('screen-miss')">לבדוק אם את מתגעגעת?</button>
+            <button class="btn-game" onclick="startHangman()">לשחק משחק</button>
+        </div>
+
+        <div id="screen-hangman" class="screen">
+            <h2>איש תלוי</h2>
+            <div class="hangman-image-container">
+                <img id="hangmanPic" src="images/image1.jpg" alt="שלב משחק">
+            </div>
+            <div id="wordDisplay" class="word-display"></div>
+            <p>ניסיונות נותרו: <span id="livesCount">5</span></p>
+            <div id="alphabet" class="alphabet"></div>
+            <div id="gameControls" class="game-controls" style="display:none;">
+                <button class="btn-yes" id="nextWordBtn" onclick="setupWord()">למילה הבאה</button>
+                <button class="btn-game" onclick="nextScreen('screen-miss')">מתגעגעת?</button>
+            </div>
+        </div>
+
+        <div id="screen-fail" class="screen">
+            <h2>די נו...</h2>
+            <button class="btn-yes" onclick="setupWord()">ניסיון חוזר</button>
+            <button class="btn-no" onclick="showAnswer()">להצגת התשובה</button>
+        </div>
+
+        <div id="screen-answer" class="screen">
+            <h2>התשובה הייתה:</h2>
+            <h1 id="revealedWord"></h1>
+            <button class="btn-yes" onclick="setupWord()">למילה הבאה</button>
+            <button class="btn-game" onclick="nextScreen('screen-miss')">מתגעגעת?</button>
+        </div>
+
+        <div id="screen-miss" class="screen">
+            <h2>האם את מתגעגעת אליי?</h2>
+            <button class="btn-yes" onclick="nextScreen('screen-call')">כן</button>
+            <button class="btn-no" onclick="showVirus()">לא</button>
+        </div>
+
+        <div id="screen-retry" class="screen">
+            <div class="image-container">
+                <img src="images/image.jpg" alt="הפתעה">
+            </div>
+            <h2>אז את מתגעגעת אליי?</h2>
+            <button class="btn-yes" onclick="nextScreen('screen-call')">כן</button>
+            <button id="hideBtn" class="btn-no" onclick="hideMe()">לא</button>
+        </div>
+
+        <div id="screen-call" class="screen">
+            <h2>איזה כיף! 😊</h2>
+            <p>אני כאן במרחק לחיצה:</p>
+            <a href="tel:0501234567" class="call-btn">📞 התקשר אליי</a>
+        </div>
+    </div>
+
+    <div id="virus-alert" class="virus-screen">
+        <h1>סכנה!!!</h1>
+        <p>הטלפון שלך נתקף ב-1212 וירוסים!</p>
+        <button class="btn-yes" style="background: red;" onclick="closeVirus()">לביטולם לחצי פה ונסה שנית</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
